@@ -1,10 +1,12 @@
-package com.company;
+import com.company.DiffiHelmanSystem;
+import com.company.ShamirSystem;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-
-public class Main {
-
-    public static void main(String[] args) {
+class ShamirSystemTest {
+    @Test
+    void sendAndDecodeMessageTest(){
         int module = 30803;
         ShamirSystem Alice = new ShamirSystem(module, "Alice");
         ShamirSystem Bob = new ShamirSystem(module, "Bob");
@@ -13,6 +15,6 @@ public class Main {
         int firstBob = Bob.codeMessageFirstFactor(firstAlice);
         int secondAlice = Alice.codeMessageSecondFactor(firstBob);
         int secondBob = Bob.codeMessageSecondFactor(secondAlice);
-        System.out.println(secondBob);
+        assertEquals(30, secondBob);
     }
 }
