@@ -1,5 +1,5 @@
-import com.company.NumberOperating;
 import org.junit.jupiter.api.Test;
+import utils.NumberOperating;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

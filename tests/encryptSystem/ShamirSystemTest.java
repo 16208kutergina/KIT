@@ -1,5 +1,5 @@
-import com.company.DiffiHelmanSystem;
-import com.company.ShamirSystem;
+package encryptSystem;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

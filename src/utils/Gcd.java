@@ -1,4 +1,4 @@
-package com.company;
+package utils;
 
 public class Gcd {
     private int greatestCommonDivider;

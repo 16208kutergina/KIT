@@ -1,4 +1,4 @@
-package com.company;
+package utils;
 
 import java.math.BigInteger;
 
@@ -34,6 +34,21 @@ public class NumberOperating {
                 return (gcd.getY()% module + module) % module;
             }
         }
+    }
+
+    public static int findRandMutuallyPrime(int number){
+        while (true) {
+            int potentialMutuallyPrime = (int) (random() * 1e4);
+            if (isMutuallyPrime(number, potentialMutuallyPrime)) {
+                return potentialMutuallyPrime;
+            }
+        }
+    }
+
+    private static boolean isMutuallyPrime(int firstNumber, int secondNumber){
+        int max = max(firstNumber, secondNumber);
+        int min = min(firstNumber, secondNumber);
+        return max % min != 0;
     }
 
     public static Gcd greatestCommonDivider(int first, int second){

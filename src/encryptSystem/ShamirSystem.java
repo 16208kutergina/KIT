@@ -1,4 +1,6 @@
-package com.company;
+package encryptSystem;
+
+import utils.NumberOperating;
 
 public class ShamirSystem {
     private int module;
