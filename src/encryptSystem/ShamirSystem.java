@@ -5,7 +5,7 @@ import utils.NumberOperating;
 public class ShamirSystem {
     private int module;
     private int secretKey;
-    private int pairSecretKey;
+    private int pairSecretKey = -1;
     private String name;
 
     public ShamirSystem(int module, String name) {
@@ -14,8 +14,10 @@ public class ShamirSystem {
     }
 
     private void generateKeys() {
-        this.secretKey = (int) (Math.random() * 1e2);
-        this.pairSecretKey = NumberOperating.degreeInModule(secretKey, -1, module-1);
+        while (pairSecretKey == -1){
+            this.secretKey = (int) (Math.random() * 1e2);
+            this.pairSecretKey = NumberOperating.degreeInModule(secretKey, -1, module - 1);
+    }
     }
 
     public int codeMessageFirstFactor(int message){

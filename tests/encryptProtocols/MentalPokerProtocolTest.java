@@ -16,7 +16,8 @@ class MentalPokerProtocolTest {
         var encryptAliceCards = Alice.sendCards();
         var cardAlice = Bob.chooseCardForOther(encryptAliceCards);
         var decodeCard = Alice.decodeCard(cardAlice);
-        assertTrue(Alice.getCards().contains(decodeCard));
+        var contains = Alice.getCards().contains(decodeCard);
+        assertTrue(contains);
         var encryptBobCards = Bob.sendCards();
         var cardForBob = Alice.decodeCard(Alice.chooseCardForOther(encryptBobCards));
         var decodeCard1 = Bob.decodeCard(cardForBob);

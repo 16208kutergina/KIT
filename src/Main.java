@@ -1,19 +1,21 @@
-import encryptProtocols.MentalPokerProtocol;
+import digitalSignature.ElGamalSignature;
+import digitalSignature.RSASignature;
+import hackSystem.BabyStepGiantStepSystem;
+import utils.NumberOperating;
+
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        int module = 30803;
-        var Alice = new MentalPokerProtocol(module,"Alice");
-        var Bob = new MentalPokerProtocol(module,"Bob");
+        int base = 2;
+        int module = 30203;
+        int result = 24322;
 
-        Alice.chooseCards();
-        var encryptAliceCards = Alice.sendCards();
-        var cardAlice = Bob.chooseCardForOther(encryptAliceCards);
-        var decodeCard = Alice.decodeCard(cardAlice);
-        System.out.println(decodeCard);
-        var encryptBobCards = Bob.sendCards();
-        var cardForBob = Alice.decodeCard(Alice.chooseCardForOther(encryptBobCards));
-        System.out.println(Bob.decodeCard(cardForBob));
+        BabyStepGiantStepSystem system = new BabyStepGiantStepSystem(base, module, result);
+        var degree = system.findDegree();
+        System.out.println(degree);
+        var i = NumberOperating.degreeInModule(base, degree, module);
+        System.out.println(i);
     }
 }

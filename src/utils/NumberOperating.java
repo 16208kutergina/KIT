@@ -46,9 +46,8 @@ public class NumberOperating {
     }
 
     private static boolean isMutuallyPrime(int firstNumber, int secondNumber){
-        int max = max(firstNumber, secondNumber);
-        int min = min(firstNumber, secondNumber);
-        return max % min != 0;
+        var gcd = greatestCommonDivider(firstNumber, secondNumber);
+        return gcd.getGreatestCommonDivider() == 1;
     }
 
     public static Gcd greatestCommonDivider(int first, int second){
