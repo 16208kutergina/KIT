@@ -1,5 +1,8 @@
 import digitalSignature.ElGamalSignature;
 import digitalSignature.RSASignature;
+import elMoney.Bank;
+import elMoney.Bill;
+import elMoney.Customer;
 import hackSystem.BabyStepGiantStepSystem;
 import utils.NumberOperating;
 
@@ -8,14 +11,14 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        int base = 2;
-        int module = 30203;
-        int result = 24322;
-
-        BabyStepGiantStepSystem system = new BabyStepGiantStepSystem(base, module, result);
-        var degree = system.findDegree();
-        System.out.println(degree);
-        var i = NumberOperating.degreeInModule(base, degree, module);
-        System.out.println(i);
+        Bank bank = new Bank();
+        Customer customer = new Customer();
+        int d = bank.getD();
+        int n = bank.getN();
+        customer.setNumberOfBill();
+        int nt = customer.sendRequestOfBill(n, d);
+        int s = bank.sendAnswerCustomer(nt);
+        Bill bill = customer.getBill(s, n);
+        System.out.println(bank.checkBill(bill));
     }
 }
